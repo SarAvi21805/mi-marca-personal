@@ -1,3 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #8B5CF6;
+  --color-brand-green: #10B981;
+  --color-brand-blue: #3B82F6;
+}
