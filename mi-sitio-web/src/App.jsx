@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import AboutMe from './pages/AboutMe';
+import Blog from './pages/Blog';
 
 // Placeholder de las páginas
 const Home = () => (
@@ -44,9 +46,6 @@ const Home = () => (
   </div>
 );
 
-const About = () => <div className="p-10 text-center text-2xl">Sección Sobre Mí (En construcción)</div>;
-const Blog = () => <div className="p-10 text-center text-2xl">Sección Blog (En construcción)</div>;
-
 function App() {
   return (
     <Router>
@@ -54,7 +53,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/sobre-mi" element={<About />} />
+          <Route path="/sobre-mi" element={<AboutMe />} />
           <Route path="/blog" element={<Blog />} />
           {/* Portafolio y contacto estarán visibles pero vacíos por ahora */}
           <Route path="/portafolio" element={<div className="p-10">Próximamente</div>} />
