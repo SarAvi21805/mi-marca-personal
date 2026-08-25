@@ -1,26 +1,48 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Flower, Menu, X } from 'lucide-react'
+import fotoPixel from '../assets/Sarai.jpg'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Función para definir los estilos del link activo (Desktop)
+  const navStyles = ({ isActive }) => 
+    `transition-all duration-300 pb-1 border-b-2 font-medium ${
+      isActive 
+        ? 'text-brand-blue border-brand-blue scale-105' 
+        : 'text-gray-600 border-transparent hover:text-brand-purple'
+    }`;
+
+  // Función para estilos en móvil
+  const mobileNavStyles = ({ isActive }) =>
+    `transition-all duration-300 block py-2 px-4 rounded-lg ${
+      isActive 
+        ? 'text-brand-blue bg-brand-blue/10 font-bold border-l-4 border-brand-blue' 
+        : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
+    }`;
+
   return (
-    <nav className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+    <nav className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       
         {/* Logo / Nombre Artístico */}
-        <Link to="/" className="text-2xl font-bold text-brand-purple">
-          Sar<span className="text-brand-green">Avi</span>
+        <Link to="/" className="flex items-center gap-3 group" onClick={() => setIsOpen(false)}>
+          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-brand-purple group-hover:scale-110 transition-transform">
+            <img src={fotoPixel} alt="SarAvi Logo" className="w-full h-full object-cover" />
+          </div>
+          <span className="text-2xl font-bold text-brand-purple">
+            Sar<span className="text-brand-green">Avi</span>
+          </span>
         </Link>
 
         {/* Enlaces (Desktop) */}
-        <div className="hidden md:flex gap-8 font-medium text-gray-600">
-          <Link to="/" className="hover:text-brand-purple transition-colors">Home</Link>
-          <Link to="/sobre-mi" className="hover:text-brand-purple transition-colors">Sobre mí</Link>
-          <Link to="/blog" className="hover:text-brand-purple transition-colors">Blog</Link>
-          <Link to="/portafolio" className="hover:text-brand-purple transition-colors text-gray-400">Portafolio</Link>
-          <Link to="/contacto" className="hover:text-brand-purple transition-colors">Contacto</Link>
+        <div className="hidden md:flex gap-8 items-center">
+          <NavLink to="/" className={navStyles}>Home</NavLink>
+          <NavLink to="/sobre-mi" className={navStyles}>Sobre Mí</NavLink>
+          <NavLink to="/blog" className={navStyles}>Blog</NavLink>
+          <NavLink to="/portafolio" className="hover:text-brand-purple transition-colors text-gray-400">Portafolio</NavLink>
+          <NavLink to="/contacto" className={navStyles}>Contacto</NavLink>
         </div>
 
         {/* Mobile Button (Flor) */}
@@ -34,15 +56,12 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-xl animate-in slide-in-from-top duration-300">
-          <div className="flex flex-col p-6 gap-6 font-semibold text-lg text-gray-700">
-            <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-brand-purple">Home</Link>
-            <Link to="/sobre-mi" onClick={() => setIsOpen(false)} className="hover:text-brand-purple">Sobre Mí</Link>
-            <Link to="/blog" onClick={() => setIsOpen(false)} className="hover:text-brand-purple">Blog</Link>
-            <hr className="border-gray-100" />
-            <div className="flex gap-4 text-sm text-gray-400">
-              <span>Portafolio (Próximamente)</span>
-            </div>
-            <Link to="/contacto" onClick={() => setIsOpen(false)} className="hover:text-brand-purple">Contacto</Link>
+          <div className="flex flex-col p-6 gap-6 font-semibold text-lg">
+            <NavLink to="/" onClick={() => setIsOpen(false)} className={mobileNavStyles}>Home</NavLink>
+            <NavLink to="/sobre-mi" onClick={() => setIsOpen(false)} className={mobileNavStyles}>Sobre Mí</NavLink>
+            <NavLink to="/blog" onClick={() => setIsOpen(false)} className={mobileNavStyles}>Blog</NavLink>
+            <NavLink to="/portafolio" onClick={() => setIsOpen(false)} className={mobileNavStyles}>Portafolio</NavLink>
+            <NavLink to="/contacto" onClick={() => setIsOpen(false)} className={mobileNavStyles}>Contacto</NavLink> 
           </div>
         </div>
       )}
