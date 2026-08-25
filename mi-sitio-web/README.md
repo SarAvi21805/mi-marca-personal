@@ -1,16 +1,26 @@
-# React + Vite
+# 🦋 SarAvi - Marca Personal 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenidos a mi rincón digital! Este sitio web es mi portafolio profesional y marca personal, diseñado para reflejar el equilibrio entre la **Ingeniería en Ciencias de la Computación** y el **Diseño UX**.
 
-Currently, two official plugins are available:
+## 🚀 Enlace del Proyecto
+Visita mi sitio aquí: [https://saravi21805.github.io/mi-marca-personal/](https://saravi21805.github.io/mi-marca-personal/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Stack Tecnológico
+Este proyecto fue construido desde cero utilizando:
+*   **React + Vite**: Para una arquitectura de componentes moderna.
+*   **Tailwind CSS v4**: Para un diseño responsivo, minimalista y con una paleta de colores personalizada.
+*   **Framer Motion**: Implementación de animaciones fluidas y micro-interacciones.
+*   **React Router (HashRouter)**: Manejo de navegación SPA optimizado para GitHub Pages.
+*   **Lucide React**: Iconografía semántica y profesional.
 
-## React Compiler
+## ✨ Características Destacadas
+- **Arquetipo de Marca**: Basado en el "Inocente" (optimismo, simplicidad y honestidad).
+- **Interacción Digital**: Efecto de transición entre fotografía real y pixel art (Hover/Tap).
+- **UX Adaptativo**: Menú móvil responsivo con navegación jerárquica y estados activos subrayados en azul.
+- **Blog Optimizado**: Publicación escrita siguiendo un checklist de redacción global, hipertextual y con lectura escáner.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✒️ Sobre Mí
+Soy **Saraí Avilés**, estudiante de 3er año en la **Universidad del Valle de Guatemala**. Mi objetivo es humanizar la tecnología, creando soluciones que no solo sean eficientes, sino también empáticas y visualmente encantadoras.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+Hecho por 💜 Saraí Avilés, 2026.
