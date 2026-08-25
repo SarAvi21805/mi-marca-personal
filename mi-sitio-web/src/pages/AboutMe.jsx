@@ -50,7 +50,7 @@ const AboutMe = () => {
 
       <div className="max-w-5xl mx-auto py-16 px-6 space-y-20">
       
-        {/* SECCIÓN 1: BIOGRAFÍA & ESTUDIANTE */}
+        {/* BIOGRAFÍA & ESTUDIANTE */}
         <section className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl font-bold text-gray-900 italic">Más que líneas de código</h2>
@@ -80,40 +80,108 @@ const AboutMe = () => {
           </div>
         </section>
 
-        {/* SECCIÓN 2: TECH STACK & SKILLS */}
+        {/* TECH STACK & SKILLS */}
         <section className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
           <h2 className="text-3xl font-bold text-center mb-12">Mi Arsenal Técnico</h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="space-y-4">
+
+            {/* Card 1: Diseño & UX */}
+            <div className="space-y-3">
               <div className="text-4xl">🎨</div>
-              <h4 className="font-bold text-brand-purple">Diseño & UX</h4>
-              <p className="text-sm text-gray-500">Creación de paletas, Guías de estilo, Prototipado en Figma, UX Research.</p>
+              <h4 className="font-bold text-brand-purple border-b-2 border-brand-purple/20 pb-2">Diseño & UX</h4>
+              <p className="text-sm text-gray-500">Es lo que más me gusta, diseñar vistas y aplicaciones funcionales y atractivas, garantizando que los procesos sean intuitivos para el usuario.</p>
+              <p className="text-sm text-gray-500">Permite liberar mi creatividad y pensamiento espacial optimizando la presentación de la información y objetos sin saturar la vista.</p>
+              <p className="text-sm text-gray-500">Entre lo que suelo realizar incluyo:</p>
+              <ul className="text-sm text-gray-600 space-y-2">
+                <li>• Prototipado en Figma</li>
+                <li>• Creación de Guías de Estilo y paletas</li>
+                <li>• Psicología del Color</li>
+                <li>• UX Research & Writing</li>
+              </ul>
             </div>
-            <div className="space-y-4">
+
+            {/* Card 2: Frontend Development */}
+            <div className="space-y-3">
               <div className="text-4xl">💻</div>
-              <h4 className="font-bold text-brand-purple">Frontend</h4>
-              <p className="text-sm text-gray-500">React.js, Tailwind CSS, HTML5 semántico, CSS3 moderno.</p>
+              <h4 className="font-bold text-brand-purple border-b-2 border-brand-purple/20 pb-2">Frontend</h4>
+              <p className="text-sm text-gray-500">Yendo de la mano con el diseño y UX; esta parte me gusta bastante porque me permite ver mis ideas plasmadas en la pantalla de mi computadora mientras programo.</p>
+              <p className="text-sm text-gray-500">Dentro de los múltiples lenguajes, suelo utilizar más los siguientes:</p>
+              <ul className="text-sm text-gray-600 space-y-2">
+                <li>• React.js & Vite</li>
+                <li>• C#, Kotlin</li>
+                <li>• Vue.js</li>
+                <li>• Tailwind CSS</li>
+                <li>• TypeScript</li>
+                <li>• JavaScript (ES6+)</li>
+                <li>• HTML5 & CSS3 Moderno</li>
+              </ul>
             </div>
-            <div className="space-y-4">
+
+            {/* Card 3: Ingeniería & Backend */}
+            <div className="space-y-3">
               <div className="text-4xl">⚙️</div>
-              <h4 className="font-bold text-brand-purple">Ingeniería</h4>
-              <p className="text-sm text-gray-500">Programación lógica, Estructuras de datos, Control de versiones (Git/GitHub).</p>
+              <h4 className="font-bold text-brand-purple border-b-2 border-brand-purple/20 pb-2">Ingeniería & DB</h4>
+              <p className="text-sm text-gray-500">Esta parte no es visual, puesto que requiere la programación lógica para que funcionen las aplicaciones y las conexiones que sean necesarias.</p>
+              <p className="text-sm text-gray-500">Al trabajar en esto, suelo manetar el control de versiones mediante GitHub para organizarme mejor.</p>
+              <p className="text-sm text-gray-500">Dentro de los lenguajes que más he utilizado se encuentra:</p>
+              <ul className="text-sm text-gray-600 space-y-2">
+                <li>• Java, Go, Python</li>
+                <li>• Assembler, C++, Lisp</li>
+                <li>• PostgreSQL, SQL, NoSQL & MySQL</li>
+                <li>• Firebase Authentication</li>
+                <li>• Estructuras de Datos</li>
+                <li>• Estructuras de Datos</li>
+                <li>• Node.js & API REST</li>
+              </ul>
             </div>
+
+            {/* Card 4: Herramientas */}
+            <div className="space-y-3">
+              <div className="text-4xl">🐧</div>
+              <h4 className="font-bold text-brand-purple border-b-2 border-brand-purple/20 pb-2">Herramientas</h4>
+              <ul className="text-sm text-gray-600 space-y-2">
+                <li>• Control de Versiones (Git)</li>
+                <li>• Metodologías Ágiles</li>
+                <li>• Assembler (Fundamentos)</li>
+                <li>• Bash & Linux/WSL</li>
+                <li>• TablePlus</li>
+                <li>• Docker</li>
+                <li>• Visual Studio Code</li>
+                <li>• Arduino IDE & LiveWire</li>
+                <li>• Postman</li>
+                <li>• Android Studio</li>
+                
+              </ul>
+            </div>
+
           </div>
         </section>
 
-        {/* SECCIÓN 3: PROYECTOS / EXPERIENCIA */}
+        {/* PROYECTOS / EXPERIENCIA */}
         <section className="space-y-8">
           <h2 className="text-3xl font-bold text-gray-900">Proyectos con Corazón</h2>
           <div className="grid md:grid-cols-2 gap-6">
+            
             <div className="border border-gray-100 p-6 rounded-2xl hover:shadow-md transition-shadow">
               <h4 className="font-bold text-lg mb-2">Desarrollo de Marca Personal</h4>
               <p className="text-gray-600 text-sm">Creación de este sitio web desde cero usando React y Tailwind, aplicando principios de accesibilidad y psicología del color.</p>
             </div>
+
             <div className="border border-gray-100 p-6 rounded-2xl hover:shadow-md transition-shadow">
-              <h4 className="font-bold text-lg mb-2">Interfaces de Usuario (UX)</h4>
-              <p className="text-gray-600 text-sm">Participación en proyectos universitarios de diseño visual, enfocándome en la creación de guías de estilo consistente.</p>
+              <h4 className="font-bold text-lg mb-2">Vive_paso_a_paso</h4>
+              <p className="text-gray-600 text-sm">Participación en proyecto con Kotlin para gestionar hábitos saludables, registrar rutinas diarias y motivar al usuario con estadísitcas.</p>
             </div>
+            
+            <div className="border border-gray-100 p-6 rounded-2xl hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-lg mb-2">Kontrol</h4>
+              <p className="text-gray-600 text-sm">Participación en plataforma para gestión de proyectos, equiós, inventario y marketing con agente de IA integrado.</p>
+            </div>
+
+            <div className="border border-gray-100 p-6 rounded-2xl hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-lg mb-2">snake-game</h4>
+              <p className="text-gray-600 text-sm">Juego Snake creado con React y Vite. Incluye menú principal, tabla de puntajes, instrucciones, dificultad ajustable, paredes aleatorias, túneles y enemigos.</p>
+            </div>
+
           </div>
         </section>
       </div>    

@@ -5,11 +5,10 @@ const Contact = () => (
       Estoy abierta a nuevas oportunidades y colaboraciones donde la tecnología y el diseño se unan.
     </p>
     <div className="mt-8">
-      <a 
-        href="mailto:tu-correo@ejemplo.com" 
-        className="px-8 py-3 bg-brand-green text-white rounded-full font-bold hover:scale-105 transition-all shadow-lg"
-      >
-        Enviar un correo
+      <a href="mailto:alejandraviles2005@gmail.com">
+        <button className="px-8 py-3 bg-brand-green text-white rounded-full font-bold hover:scale-105 transition-all shadow-lg">
+          Enviar un correo
+        </button>
       </a>
     </div>
   </div>
