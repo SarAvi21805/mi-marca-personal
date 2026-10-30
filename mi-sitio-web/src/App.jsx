@@ -1,122 +1,19 @@
-import { useState } from 'react'; // IMPORTANTE: Agregado useState
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import Navbar from './components/Navbar';
-import AboutMe from './pages/AboutMe';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-import Footer from './components/Footer';
-import fotoReal from './assets/Saraí_3.jpg';
-import fotoPixel from './assets/Sarai.jpg';
+import './App.css';
+import { useEffect, useState } from 'react';
+import { HashRouter, NavLink, Link, Routes, Route, useLocation, useParams } from 'react-router-dom';
+import portrait from './assets/Saraí_3.jpg';
+import CreativeExperience from './components/CreativeExperience';
+import OriginalBlog from './pages/OriginalBlog';
+import { profile, projects, articles, mediaPath } from './content';
 
-// Movimos Home a un componente con estado para manejar el toque en móvil
-const Home = () => {
-  const [isDigital, setIsDigital] = useState(false);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }} // Cambiado a 0 para efecto de subida
-      transition={{ duration: 0.8 }}
-    >
-      <div className="min-h-[90vh] flex flex-col items-center justify-center px-4 relative">
-        <div className="max-w-4xl w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
-          
-          {/* Columna Izquierda: Mensaje de Bienvenida */}
-          <div className="text-center md:text-left order-2 md:order-1">
-            <span className="bg-brand-purple/10 text-brand-purple px-4 py-1 rounded-full text-sm font-bold tracking-wide uppercase">
-              Bienvenidos a mi espacio
-            </span>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mt-4 leading-tight">
-              Hola, soy <span className="text-brand-purple">Saraí</span>
-            </h1>
-            <p className="text-xl text-gray-600 mt-6 leading-relaxed">
-              "Creo soluciones tecnológicas con <span className="font-semibold text-brand-green">empatía</span>, diseño y un toque de magia funcional."
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-              <Link to="/sobre-mi">
-                <button className="px-8 py-4 bg-brand-purple text-white rounded-2xl font-bold shadow-lg shadow-purple-200 hover:-translate-y-1 transition-all">
-                  Explora mi visión
-                </button>
-              </Link>
-            </div>
-          </div>
-
-          {/* Columna Derecha: Foto con efecto Tap/Hover */}
-          <div className="order-1 md:order-2 flex justify-center">
-            <div 
-              className="relative group cursor-pointer"
-              onClick={() => setIsDigital(!isDigital)}
-            >
-              {/* Aura de fondo */}
-              <div className="absolute -inset-6 bg-gradient-to-tr from-brand-purple/10 via-brand-blue/5 to-brand-green/10 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
-              
-              {/* Contenedor de las fotos */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] md:group-hover:shadow-purple-200/50 md:group-hover:-translate-y-2 transition-all duration-500 ease-out">
-                {/* Foto Real */}
-                <img 
-                  src={fotoReal} 
-                  alt="Saraí Real" 
-                  className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-700 ease-in-out 
-                    ${isDigital ? 'opacity-0' : 'opacity-100'} md:group-hover:opacity-0`}
-                />
-
-                {/* Foto Pixel Art */}
-                <img 
-                  src={fotoPixel} 
-                  alt="Saraí Pixel" 
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out 
-                    ${isDigital ? 'scale-100 opacity-100' : 'scale-110 opacity-0'} md:group-hover:scale-100 md:group-hover:opacity-100`}
-                />
-              </div>
-
-              {/* Tooltip */}
-              <div className={`absolute -bottom-2 left-1/2 -translate-x-1/2 bg-brand-purple text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg transition-all duration-500 pointer-events-none
-                ${isDigital ? 'opacity-100 bottom-2' : 'opacity-0 md:group-hover:opacity-100 md:group-hover:bottom-2'}`}>
-                {isDigital ? '¡Modo Digital Activo! 👾' : '¡Versión Digital ✨!'}
-                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-brand-purple rotate-45"></div>
-              </div>
-
-              {/* Indicador táctil para móviles (solo se ve si no han tocado) */}
-              {!isDigital && (
-                <div className="md:hidden absolute -top-2 -right-2 bg-brand-green text-white w-8 h-8 rounded-full flex items-center justify-center animate-bounce shadow-md">
-                  <span className="text-xs">👆</span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-function App() {
-  return (
-    <Router>
-      <div className="min-h-screen bg-slate-50 relative overflow-hidden">
-        {/* Sprites decorativos de fondo (Globales) */}
-        <div className="absolute top-[-10%] left-[-10%] w-72 h-72 bg-brand-purple/10 rounded-full blur-3xl animate-blob"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-brand-green/10 rounded-full blur-3xl animate-blob" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-[40%] right-[20%] w-64 h-64 bg-brand-blue/5 rounded-full blur-3xl animate-blob" style={{ animationDelay: '4s' }}></div>
-        
-        <Navbar />
-
-        <main className="relative z-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sobre-mi" element={<AboutMe />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/portafolio" element={<div className="p-10 text-center text-xl">Próximamente</div>} />
-            <Route path="/contacto" element={<Contact />} />
-          </Routes>
-        </main>
-
-        <Footer />
-      </div>
-    </Router>
-  );
-}
-
-export default App;
+function Socials(){return <div className="socials"><a href={`mailto:${profile.email}`}>Correo ↗</a>{['linkedin','instagram','github'].map(key=><a key={key} href={profile[key]} target="_blank" rel="noreferrer">{key === 'github' ? 'GitHub' : key === 'linkedin' ? 'LinkedIn' : 'Instagram'} ↗</a>)}</div>}
+function Heading({eyebrow,title,children}){return <header className="section-heading"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{children && <p className="lede">{children}</p>}</header>}
+function Portfolio({home=false}){return <section className="section" id="proyectos"><Heading eyebrow="Ideas que toman forma" title={home?'Del código a lo que puedes ver.':'Mi trabajo, explicado.'}>Diseño, programación y aprendizaje. Cada proyecto cuenta una parte de mi recorrido.</Heading><div className="project-grid">{projects.map((p,i)=><article className="project-card" key={p.title}><div className={`project-art art-${i}`}>{p.image?<img src={mediaPath(p.image)} alt={`Resultado de ${p.title}`} loading="lazy"/>:<><span>0{i+1}</span><strong>{p.title}</strong><small>Ficha de proyecto · captura pendiente</small></>}</div><div className="card-body"><p className="eyebrow">{p.category}</p><h2>{p.title}</h2><p>{p.description}</p><details><summary>Mi aporte y proceso</summary><h3>Mi participación</h3><p>{p.role}</p><h3>Conocimientos aplicados</h3><p>{p.skills}</p><h3>Por qué importa</h3><p>{p.value}</p></details>{p.url&&<a className="text-link" href={p.url} target="_blank" rel="noreferrer">Explorar repositorio ↗</a>}</div></article>)}</div><aside className="note">En preparación: evidencias visuales de los proyectos y un quinto trabajo seleccionado. Las fichas distinguen la información disponible de los aportes que aún debo documentar.</aside></section>}
+function Home(){return <><section className="hero section"><div><p className="eyebrow">Saraí Avilés / Computación + diseño</p><h1>La lógica construye.<br/><em>La empatía da sentido.</em></h1><p className="lede">Me interesa convertir ideas complejas en interfaces claras. Soy estudiante de Computación en la UVG y estoy construyendo mi camino entre el desarrollo frontend y el diseño UX.</p><div className="actions"><Link className="button" to="/portafolio">Conoce mi trabajo ↗</Link><Link className="button secondary" to="/sobre-mi">La persona detrás del código</Link></div><div className="hero-tags"><span>01 / Entender</span><span>02 / Diseñar</span><span>03 / Construir</span></div></div><figure className="portrait"><img src={portrait} alt="Saraí Avilés"/><figcaption><span className="dot"/> Una mente lógica. Una mirada creativa.</figcaption><span className="portrait-sticker">¡Hola!<br/>Soy Saraí.</span></figure></section><div className="manifesto"><p>Diseñar empieza por una pregunta.</p><strong>¿Cómo se siente estar del otro lado de la pantalla?</strong></div><Portfolio home/><section className="section invitation"><p className="eyebrow">Bitácora de aprendizaje</p><h2>También comparto el proceso.</h2><p>Decisiones pequeñas, preguntas útiles y lo que voy aprendiendo al construir.</p><Link className="text-link" to="/blog">Leer mi bitácora →</Link></section></>}
+function About(){return <section className="section"><Heading eyebrow="La persona detrás del código" title="Entre la lógica y la sensibilidad.">Soy Saraí Avilés, estudiante de Ingeniería en Ciencias de la Computación en la Universidad del Valle de Guatemala.</Heading><div className="about-grid"><img className="about-photo" src={portrait} alt="Retrato de Saraí"/><div><h2>Mi punto de partida son las personas.</h2><p>Me gusta diseñar páginas web porque puedo unir mi pensamiento técnico con mi lado creativo. Me interesa entender qué necesita una persona y cómo organizar una interfaz para que encuentre su siguiente paso.</p><p>Busco colaborar con equipos de diseño y desarrollo donde pueda aportar ideas, construir interfaces y aprender de la retroalimentación. Mi portafolio reúne proyectos académicos y personales; mi trayectoria profesional está en construcción.</p><div className="skills">{['React','HTML y CSS','Kotlin','Figma','Java','Git','Diseño de interfaces'].map(s=><span key={s}>{s}</span>)}</div></div></div><div className="media-grid"><article className="panel"><p className="eyebrow">Mi recorrido</p><h2>Currículum</h2><p>Formación, habilidades y proyectos en un solo documento.</p>{profile.cv?<><a className="button" href={mediaPath(profile.cv)} target="_blank" rel="noreferrer">Ver CV en PDF ↗</a><a className="text-link" href={mediaPath(profile.cv)} download>Descargar CV</a></>:<p className="note">El PDF de mi CV estará disponible próximamente.</p>}</article><article className="panel"><p className="eyebrow">Mi presentación</p><h2>Una idea, una interfaz, una persona.</h2>{profile.video?<video controls preload="metadata" poster={portrait}><source src={mediaPath(profile.video)} type="video/mp4"/>{profile.captions&&<track default kind="captions" srcLang="es" label="Español" src={mediaPath(profile.captions)}/>}Tu navegador no reproduce este video. <a href={mediaPath(profile.video)}>Descargar video</a></video>:<p className="note">Estoy preparando mi video de presentación. Mientras tanto, te invito a conocer mis proyectos.</p>}<Link className="text-link" to="/portafolio">Ver mi trabajo →</Link></article></div></section>}
+function Blog(){return <section className="section"><Heading eyebrow="Bitácora / Diseño · Código · Aprendizaje" title="Lo que aprendo, lo comparto.">Ideas para mirar la tecnología desde las personas y explicar mejor lo que construimos.</Heading><div className="blog-grid">{articles.map((a,i)=><article className="panel" key={a.slug}><div className={`article-art art-${i}`} aria-label={a.caption}>{a.visual.map(v=><span key={v}>{v}</span>)}</div><p className="eyebrow">{a.pillar}</p><h2>{a.title}</h2><p>{a.intro}</p><Link className="text-link" to={`/blog/${a.slug}`}>Leer artículo →</Link></article>)}</div><article className="panel archive"><p className="eyebrow">Primera entrega / Archivo</p><h2>Más allá del código: 3 secretos detrás de mi marca personal</h2><Link className="text-link" to="/blog/mi-marca">Leer la entrada original →</Link></article></section>}
+function Article(){const {slug}=useParams();const a=articles.find(a=>a.slug===slug);if(slug==='mi-marca')return <OriginalBlog/>;if(!a)return <NotFound/>;return <article className="section reading"><Link className="text-link" to="/blog">← Volver a la bitácora</Link><Heading eyebrow={a.pillar} title={a.title}>{a.intro}</Heading><figure><div className="article-art">{a.visual.map(v=><span key={v}>{v}</span>)}</div><figcaption>{a.caption}</figcaption></figure>{a.sections.map(([h,p])=><section key={h}><h2>{h}</h2><p>{p}</p></section>)}<p className="note">{a.close}</p><small>Texto preparado con asistencia de IA para esta actualización. Ejemplos conceptuales; no se presentan como resultados medidos.</small><div className="actions"><Link className="button secondary" to="/contacto">Conversemos sobre esta idea</Link></div></article>}
+function Contact(){const [ready,setReady]=useState(false);function submit(e){e.preventDefault();const data=new FormData(e.currentTarget);window.location.href=`mailto:${profile.email}?subject=${encodeURIComponent(data.get('subject'))}&body=${encodeURIComponent(`Hola, Saraí:\n\n${data.get('message')}\n\n${data.get('name')}\n${data.get('email')}`)}`;setReady(true)}return <section className="section"><Heading eyebrow="Una conversación puede ser el comienzo" title="¿Construimos algo con sentido?">Si buscas una colaboradora en formación que disfrute unir diseño y programación, me gustaría conocer tu idea.</Heading><div className="contact-grid"><div><h2>Hablemos de tu proyecto.</h2><p>Colaboraciones, oportunidades de aprendizaje y equipos donde aportar una mirada creativa.</p><a className="text-link email" href={`mailto:${profile.email}`}>{profile.email}</a><Socials/><p className="note">Este formulario abre tu aplicación de correo. No almacena datos ni envía el mensaje automáticamente.</p></div><form className="panel" onSubmit={submit}><label>Tu nombre<input name="name" autoComplete="name" required maxLength="100"/></label><label>Tu correo<input name="email" type="email" autoComplete="email" required/></label><label>¿De qué hablamos?<input name="subject" required maxLength="160"/></label><label>Cuéntame tu idea<textarea name="message" rows="5" maxLength="3000" required/></label><button className="button" type="submit">Abrir mi correo con este mensaje ↗</button>{ready&&<p role="status">Si tu aplicación se abrió, revisa el borrador y pulsa enviar allí. Si no se abrió, escríbeme directamente al correo de esta página.</p>}</form></div></section>}
+function NotFound(){return <section className="section"><Heading eyebrow="404" title="Esta página todavía no existe."/><Link className="button" to="/">Volver al inicio</Link></section>}
+function Shell(){const {pathname}=useLocation();const [menu,setMenu]=useState(false);useEffect(()=>{window.scrollTo(0,0);document.title=`Saraí Avilés · ${pathname==='/'?'Diseño y desarrollo':pathname.split('/')[1]}`},[pathname]);return <><a className="skip" href="#main">Saltar al contenido</a><header className="site-header"><Link className="brand" to="/" aria-label="Saraí Avilés, inicio">sa<span>raí</span><i>✳</i></Link><button className="menu-toggle" aria-expanded={menu} aria-controls="navigation" onClick={()=>setMenu(!menu)}>Menú {menu?'−':'+'}</button><nav id="navigation" className={menu?'is-open':''} aria-label="Navegación principal">{[['/','Inicio'],['/sobre-mi','Mi esencia'],['/portafolio','Portafolio'],['/blog','Bitácora'],['/contacto','Hablemos ↗']].map(([url,label])=><NavLink key={url} to={url} end={url==='/'} onClick={()=>setMenu(false)}>{label}</NavLink>)}</nav></header><CreativeExperience/><main id="main" tabIndex="-1"><Routes><Route path="/" element={<Home/>}/><Route path="/sobre-mi" element={<About/>}/><Route path="/portafolio" element={<Portfolio/>}/><Route path="/blog" element={<Blog/>}/><Route path="/blog/:slug" element={<Article/>}/><Route path="/contacto" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes></main><footer className="site-footer"><div><Link className="brand" to="/">saraí✳</Link><p>Tecnología con empatía.<br/>Computación y diseño UX en formación.</p></div><Socials/><small>© {new Date().getFullYear()} Saraí Avilés · Ilustración creada con IA.</small></footer></>}
+export default function App(){return <HashRouter><Shell/></HashRouter>}
