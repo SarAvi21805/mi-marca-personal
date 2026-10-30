@@ -1,0 +1,195 @@
+.full-name .given-name {
+    color: #7950d0;
+}
+
+.full-name .family-name {
+    color: #087c5a;
+}
+
+.site-footer .personal-signature {
+    font-size: 1.35rem;
+    font-weight: 750;
+    margin: 18px 0 4px;
+}
+
+.site-footer .brand-explanation {
+    font-size: .8rem;
+    margin: 0 0 14px;
+}
+
+.flower-menu {
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #7950d0;
+    border-radius: 50px;
+}
+
+.menu-flower {
+    width: 32px;
+    height: 32px;
+    animation: flower-turn 12s linear infinite;
+}
+
+.flower-menu[aria-expanded="true"] .menu-flower {
+    animation-play-state: paused;
+}
+
+@keyframes flower-turn {
+    to { transform: rotate(360deg); }
+}
+
+.portrait-switch {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 420px;
+    padding: 0;
+    border: 3px solid #cfb8ef;
+    border-radius: 45% 45% 22px 22px;
+    overflow: hidden;
+    background: #eee5fc;
+}
+
+.portrait-switch img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity .4s ease, transform .4s ease;
+}
+
+.portrait-switch .digital-portrait {
+    opacity: 0;
+    transform: scale(1.04);
+}
+
+.portrait-switch.is-digital .real-portrait {
+    opacity: 0;
+}
+
+.portrait-switch.is-digital .digital-portrait {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.portrait-switch:focus-visible {
+    outline-offset: 5px;
+}
+
+.portrait .portrait-hint {
+    font-size: .75rem;
+    text-align: center;
+    margin: 12px 0 0;
+}
+
+.portrait-sticker {
+    pointer-events: none;
+}
+
+.profile-details {
+    margin: 50px 0;
+}
+
+.profile-value-grid,
+.skill-category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.strength-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+.strength-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee5f6;
+    line-height: 1.7;
+    color: #575469;
+    font-size: .9rem;
+}
+
+.strength-list strong {
+    color: #5e3c99;
+}
+
+.value-card {
+    background: linear-gradient(145deg, #ffffff, #effaf5);
+    border-top: 4px solid #10b981;
+}
+
+.value-card .value-signature {
+    color: #087c5a;
+    font-weight: 650;
+    font-size: .85rem;
+}
+
+.skills-heading {
+    margin: 48px 0 24px;
+    max-width: 750px;
+}
+
+.skill-symbol {
+    display: inline-grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    color: #7950d0;
+    background: #f0e9fa;
+    border-radius: 12px;
+    font-size: 1.5rem;
+}
+
+.skill-category h3 {
+    font-size: 1.25rem;
+    margin: 18px 0 12px;
+}
+
+.skill-category p {
+    font-size: .88rem;
+}
+
+.technology-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+}
+
+.technology-list li {
+    padding: 6px 11px;
+    border: 1px solid #e2d7ee;
+    border-radius: 20px;
+    background: #fcfaff;
+    color: #5f4779;
+    font-size: .78rem;
+}
+
+html[data-motion="off"] .menu-flower {
+    animation: none;
+}
+
+html[data-motion="off"] .portrait-switch img {
+    transition: none;
+}
+
+@media (max-width: 850px) {
+    .portrait-switch { height: 340px; }
+}
+
+@media (max-width: 640px) {
+    .flower-menu { display: inline-flex; }
+    .portrait-switch { height: 320px; }
+    .profile-value-grid, .skill-category-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-flower { animation: none; }
+    .portrait-switch img { transition: none; }
+}
