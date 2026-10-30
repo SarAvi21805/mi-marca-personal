@@ -8,7 +8,9 @@
     "build": "vite build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "counter": "node server/counter.mjs",
+    "test:counter": "node --test server/counter.test.mjs server/experience-state.test.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.3",
