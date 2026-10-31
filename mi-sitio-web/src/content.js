@@ -1,11 +1,16 @@
 import cvUrl from './assets/cv-sarai.pdf?url';
+// Edita aquí tus archivos y evidencias. Las rutas locales parten de public/.
 export const profile = {
  email: 'alejandraviles2005@gmail.com',
  linkedin: 'https://www.linkedin.com/in/alejandra-sara%C3%AD-avil%C3%A9s-gonz%C3%A1lez-3886b5408/',
  instagram: 'https://www.instagram.com/saravi_2815/',
  github: 'https://github.com/SarAvi21805',
- cv: cvUrl, // CV adjunto
- video: 'media/video-cv.mp4', // Vídeo CV
+ // Completa solo las rutas de archivos que ya existan en public/.
+ cvByLanguage: { es: 'media/cv-es.pdf', en: 'media/cv-en.pdf', fr: 'media/cv-fr.pdf' },
+ videoByLanguage: { es: 'media/video-cv-es.mp4', en: 'media/video-cv-en.mp4', fr: 'media/video-cv-fr.mp4' },
+ captionsByLanguage: { es: '', en: '', fr: '' },
+ cv: cvUrl, // CV original adjunto, sin alterar.
+ video: '', // Ejemplo: 'media/video-cv.mp4'
  visitEndpoint: import.meta.env.VITE_VISIT_ENDPOINT || '', // Sin servicio: bienvenida sin número.
  captions: '', // Ejemplo: 'media/video-cv.vtt'
 };

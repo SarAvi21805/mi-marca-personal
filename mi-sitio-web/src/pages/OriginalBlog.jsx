@@ -2,7 +2,7 @@ const Blog = () => {
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans text-gray-800">
       <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-        Más allá del código: <span className="text-brand-purple font-black underline decoration-brand-purple/20">3 secretos</span> detrás de mi marca personal como <span className="text-brand-green font-black">estudiante de Computación interesada en UX</span>
+        Más allá del código: <span className="text-brand-purple font-black underline decoration-brand-purple/20">3 secretos</span> detrás de mi marca personal como <span className="text-brand-green font-black">ingeniera UX</span>
       </h1>
 
       <p className="text-xl text-gray-600 mb-8 leading-relaxed italic border-l-4 border-brand-green pl-4">
@@ -15,7 +15,7 @@ const Blog = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4 italic">1. La tecnología con propósito humano</h2>
           <p>
             Muchos creen que la ingeniería se trata solo de algoritmos fríos. Sin embargo, <strong className="font-black text-gray-900">mi marca personal se basa en la creencia de que el código debe servir a las personas.</strong> Como estudiante de 
-            <a href="https://www.uvg.edu.gt/carreras/computacion-y-tecnologias-de-la-informacion/" target="_blank" rel="noopener noreferrer" className="text-brand-purple hover:underline mx-1">Ingeniería en Ciencias de la Computación</a>, 
+            <a href="https://www.uvg.edu.gt/carreras/computacion-y-tecnologias-de-la-informacion/" target="_blank" className="text-brand-purple hover:underline mx-1">Ingeniería en Ciencias de la Computación</a>, 
             busco que cada proyecto tenga un impacto positivo. <strong className="font-black text-gray-900">Mi objetivo es eliminar la frustración tecnológica a través de un diseño empático.</strong>
           </p>
         </section>
@@ -36,8 +36,8 @@ const Blog = () => {
             La creatividad es la herramienta que me permite pensar de forma distinta frente a los desafíos. 
             <strong className="font-black text-gray-900">Unir el diseño de experiencia de usuario con el backend es mi mayor diferenciador profesional.</strong> 
             No solo me importa que un sistema sea eficiente, sino que sea visualmente atractivo. 
-            Al aplicar herramientas de <a href="https://www.nngroup.com/articles/definition-user-experience/" target="_blank" rel="noopener noreferrer" className="text-brand-purple hover:underline mx-1">Diseño UX</a>, 
-            <strong className="font-black text-gray-900">busco que la tecnología sea más clara y accesible.</strong>
+            Al aplicar herramientas de <a href="https://www.nngroup.com/articles/definition-user-experience/" target="_blank" className="text-brand-purple hover:underline mx-1">Diseño UX</a>, 
+            <strong className="font-black text-gray-900">aseguro que la tecnología sea accesible para todos desde cualquier parte del mundo.</strong>
           </p>
         </section>
 
