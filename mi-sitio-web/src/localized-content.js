@@ -1,3 +1,4 @@
+import { additionalProjects } from './additional-projects.js';
 // Each editorial field has ES / EN / FR. Names, URLs and technology names stay unchanged.
 export const choose = (value, language) => Array.isArray(value) ? value[['es','en','fr'].indexOf(language)] : value;
 export const portfolioData = [
@@ -35,6 +36,8 @@ export const portfolioData = [
   url:'https://github.com/SarAvi21805/snake-game',image:'media/snake-game.png',demoVideo:'',liveUrl:'https://snake.saravi.codes/'
  }
 ];
+
+portfolioData.push(...additionalProjects);
 
 export const teaching = [
  {course:['Algoritmos y programación básica','Algorithms and basic programming','Algorithmes et programmation de base'],period:['Enero–mayo de 2026','January–May 2026','Janvier–mai 2026']},
