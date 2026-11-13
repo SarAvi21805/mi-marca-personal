@@ -23,6 +23,7 @@ test('portfolio roles, personal facts and teaching dates have ES/EN/FR',()=>{
   personalFacts.forEach(fact=>{assert.equal(fact.length,3);assert.ok(choose(fact,language));});
   teaching.forEach(item=>{assert.equal(item.course.length,3);assert.equal(item.period.length,3);});
  }
- assert.equal(new Set(portfolioData.map(p=>p.id)).size,4);
+ assert.equal(new Set(portfolioData.map(p=>p.id)).size,portfolioData.length);
+ assert.ok(portfolioData.length>=4);
  assert.ok(portfolioData.find(p=>p.id==='vive').demoVideo);
 });
