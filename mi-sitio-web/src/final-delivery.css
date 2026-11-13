@@ -67,3 +67,21 @@
 .portfolio-filters button[aria-pressed="true"] { background: #7042b9; color: white; }
 .project-evidence { margin-top: 18px; }
 .project-evidence img { width: 100%; height: auto; max-height: 350px; object-fit: contain; }
+
+/* Final layout: six consistent articles, compact companion, balanced manifesto. */
+.manifesto-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(240px, 1fr); gap: 32px; align-items: start; }
+.manifesto-aside .manifesto-values { grid-template-columns: 1fr; }
+.manifesto-aside h3 { margin-top: 0; }
+.blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.blog-grid > article { display: flex; flex-direction: column; }
+.blog-grid > article > .text-link { margin-top: auto; }
+.project-grid { align-items: start; }
+.project-video { width: 100%; max-height: 400px; object-fit: contain; background: #171523; }
+@media (max-width: 1024px) {
+    .companion.sleeping { left: auto !important; top: auto !important; right: 10px; bottom: 12px; width: 52px; }
+    .companion.sleeping .drag-handle, .companion.sleeping .moon-home small, .companion.sleeping .sleep-zzz { display: none; }
+    .companion.sleeping .moon-home { display: grid; place-items: center; width: 52px; height: 52px; min-width: 52px; padding: 2px; margin: 0; border-radius: 50%; }
+    .companion.sleeping .companion-image { width: 44px; height: 44px; }
+    .manifesto-layout { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 640px) { .blog-grid { grid-template-columns: 1fr; } }

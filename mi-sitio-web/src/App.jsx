@@ -44,8 +44,16 @@ function Heading({eyebrow,title,children}) {
 }
 function ProjectDemo({ project }) {
     const { tx } = useLanguage();
-    const [open,setOpen] = useState(false);
-    return <>{project.demoVideo&&<figure className="demo-figure"><video className="project-video" controls preload="none" poster={project.image?mediaPath(project.image):undefined} aria-label={tx('Video de demostración','Demo video','Vidéo de démonstration')}><source src={mediaPath(project.demoVideo)} type="video/mp4"/><a href={mediaPath(project.demoVideo)}>{tx('Abrir video','Open video','Ouvrir la vidéo')}</a></video><figcaption>{project.id==='vive'?tx('Demo de la app: hábitos y registro. Video sin audio.','App demo: habits and logging. Silent video.','Démo : habitudes et saisie. Vidéo sans son.'):tx('Demostración grabada del proyecto de escritorio.','Recorded demonstration of the desktop project.','Démonstration enregistrée du projet de bureau.')}</figcaption></figure>}{project.siteUrl&&<p><a className="text-link" href={project.siteUrl} target="_blank" rel="noreferrer">{tx('Visitar sitio web','Visit website','Visiter le site')} ↗</a></p>}{project.liveUrl&&<><div className="actions"><button className="button secondary" onClick={()=>setOpen(!open)}>{open?tx('Cerrar demo','Close demo','Fermer la démo'):tx('Probar aquí','Try here','Essayer ici')}</button><a className="text-link" href={project.liveUrl} target="_blank" rel="noreferrer">{tx('Abrir en otra pestaña','Open in a new tab','Ouvrir dans un autre onglet')} ↗</a></div>{open&&<iframe className="project-demo" title={`${project.title} demo`} src={project.liveUrl} sandbox="allow-scripts allow-same-origin allow-pointer-lock" loading="lazy"/>}</>}</>;
+    return <>
+        {project.demoVideo && <figure className="demo-figure">
+            <video className="project-video" controls preload="none" poster={project.image ? mediaPath(project.image) : undefined} aria-label={tx('Video de demostración', 'Demo video', 'Vidéo de démonstration')}>
+                <source src={mediaPath(project.demoVideo)} type="video/mp4" />
+            </video>
+            <figcaption>{tx('Demostración del proyecto.', 'Project demonstration.', 'Démonstration du projet.')} <a href={mediaPath(project.demoVideo)} target="_blank" rel="noreferrer">{tx('Abrir video', 'Open video', 'Ouvrir la vidéo')} ↗</a></figcaption>
+        </figure>}
+        {project.siteUrl && <p><a className="text-link" href={project.siteUrl} target="_blank" rel="noreferrer">{tx('Visitar sitio web', 'Visit website', 'Visiter le site')} ↗</a></p>}
+        {project.liveUrl && <p><a className="button secondary" href={project.liveUrl} target="_blank" rel="noreferrer">{tx('Jugar en otra pestaña', 'Play in a new tab', 'Jouer dans un autre onglet')} ↗</a></p>}
+    </>;
 }
 function Portfolio({home=false}) {
     const { language, tx } = useLanguage();
@@ -71,7 +79,7 @@ function About() {
 function Blog() {
     const { language, tx } = useLanguage();
     const archive = getArchive(language);
-    return <section className="section"><Heading eyebrow={tx('Diseño · Código · Aprendizaje','Design · Code · Learning','Design · Code · Apprentissage')} title={tx('Lo que aprendo, lo comparto.','What I learn, I share.','Ce que j’apprends, je le partage.')}/><div className="blog-grid">{getArticles(language).map(a=><article className="panel" key={a.slug}><div className="article-art" role="img" aria-label={a.caption}>{a.visual.map(v=><span key={v}>{v}</span>)}</div><p className="eyebrow">{a.pillar}</p><h2>{a.title}</h2><p>{a.intro}</p><Link className="text-link" to={`/blog/${a.slug}`}>{tx('Leer artículo','Read article','Lire l’article')} →</Link></article>)}</div><article className="panel archive"><p className="eyebrow">{archive.pillar}</p><h2>{archive.title}</h2><Link className="text-link" to="/blog/mi-marca">{tx('Leer primera entrada','Read first entry','Lire le premier article')} →</Link></article></section>;
+    return <section className="section"><Heading eyebrow={tx('Diseño · Código · Aprendizaje','Design · Code · Learning','Design · Code · Apprentissage')} title={tx('Lo que aprendo, lo comparto.','What I learn, I share.','Ce que j’apprends, je le partage.')}/><div className="blog-grid">{[archive, ...getArticles(language)].map(a=><article className="panel" key={a.slug}><div className="article-art" role="img" aria-label={a.caption}>{a.visual.map(v=><span key={v}>{v}</span>)}</div><p className="eyebrow">{a.pillar}</p><h2>{a.title}</h2><p>{a.intro}</p><Link className="text-link" to={`/blog/${a.slug}`}>{tx('Leer artículo','Read article','Lire l’article')} →</Link></article>)}</div></section>;
 }
 function Article() {
     const { slug } = useParams();
