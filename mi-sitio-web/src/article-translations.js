@@ -1,3 +1,4 @@
+import { finalArticles } from './final-articles';
 import { originalArticle } from './original-article';
 import { articleDetails } from './article-details';
 import { articles } from './content';
@@ -13,12 +14,12 @@ const fr = [
 ];
 export function getArticles(language) {
     const localized = language === 'es' ? articles : articles.map((a, i) => ({ ...a, ...({ en, fr }[language][i]) }));
-    return localized.map((article, index) => ({
+    return [...localized.map((article, index) => ({
         ...article,
         sections: article.sections.map(([title, body], sectionIndex) => [
             `${sectionIndex + 1}. ${title}`,
             `${body}\n\n${articleDetails[language][index][sectionIndex]}`
         ])
-    }));
+    })), ...finalArticles[language]];
 }
 export function getArchive(language) { return originalArticle[language]; }

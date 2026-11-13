@@ -1,0 +1,69 @@
+/* Final review: quieter first screen, personal manifesto and clear game outcomes. */
+.brand-manifesto {
+    margin-block: 32px;
+    border-top: 4px solid #8b5cf6;
+    background: linear-gradient(125deg, #fffaff, #f0faf6);
+}
+.brand-manifesto h2 { max-width: 28ch; }
+.manifesto-copy { max-width: 75ch; }
+.manifesto-copy p { line-height: 1.85; }
+.manifesto-values {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+    margin-block: 20px;
+}
+.manifesto-values li { background: #ffffffd9; border-radius: 12px; padding: 16px; }
+.memory-card { display: grid; place-items: center; overflow: hidden; }
+.memory-card img { width: 100%; height: 100%; max-height: 110px; object-fit: contain; }
+.game-victory {
+    display: flex; align-items: center; gap: 18px; padding: 18px;
+    border: 2px solid #429575; border-radius: 18px; background: #edf9f2;
+    margin-block: 18px; color: #244e3b;
+}
+.game-victory img { width: 80px; height: 105px; object-fit: contain; }
+.game-victory h3 { font-size: 1.2rem; margin: 0 0 8px; }
+.game-victory p { font-size: .9rem; margin: 0; }
+@media (max-width: 640px) {
+    .hero { gap: 24px; padding-top: 12px; }
+    .hero > div { padding: 22px; box-shadow: none; }
+    .hero h1 { font-size: clamp(1.9rem, 7.7vw, 2.5rem); }
+    .hero .lede { font-size: 1rem; line-height: 1.65; }
+    .hero .actions { gap: 10px; }
+    .hero .actions .button { width: 100%; text-align: center; }
+    .hero-tags, .portrait-sticker, .secret-butterfly, .experience-bar > span { display: none; }
+    .hero .portrait { width: min(100%, 290px); margin-inline: auto; }
+    .butterfly-garden svg:nth-child(n+4) { display: none; }
+    .butterfly-garden svg { opacity: .09; }
+    .experience-bar { margin: 0 18px 12px; padding: 8px 0; gap: 4px 10px; }
+    .experience-bar button { min-height: 44px; font-size: .75rem; }
+    .manifesto-values { grid-template-columns: 1fr; }
+    .companion.sleeping { left: auto !important; top: auto !important; right: 10px; bottom: 12px; width: 74px; }
+    .companion.sleeping .drag-handle { display: none; }
+    .companion.sleeping .moon-home { padding: 4px; margin: 0; }
+    .companion.sleeping .companion-image { width: 58px; height: 64px; }
+    .companion.sleeping .moon-home small { display: none; }
+    .companion-panel { right: 12px; bottom: 12px; max-height: calc(100dvh - 28px); z-index: 5; }
+    .game-victory { gap: 10px; padding: 12px; }
+    .game-victory img { width: 54px; height: 78px; }
+    .game-victory h3 { font-size: 1rem; }
+    .site-footer { padding-bottom: 100px; }
+}
+
+/* Compact mobile resting control; full-size guide only after interaction. */
+@media (max-width: 640px) {
+    .companion.sleeping { width: 48px; right: 8px; bottom: 10px; }
+    .companion.sleeping .moon-home {
+        display: grid; place-items: center; width: 48px; height: 48px;
+        min-width: 48px; padding: 2px; border-radius: 50%;
+    }
+    .companion.sleeping .companion-image { width: 40px; height: 40px; }
+    .companion.sleeping .sleep-zzz { display: none; }
+}
+.portfolio-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+.portfolio-filters button { border: 1px solid #d6c8e8; border-radius: 24px; background: white; padding: 10px 16px; color: #503877; min-height: 44px; }
+.portfolio-filters button[aria-pressed="true"] { background: #7042b9; color: white; }
+.project-evidence { margin-top: 18px; }
+.project-evidence img { width: 100%; height: auto; max-height: 350px; object-fit: contain; }
