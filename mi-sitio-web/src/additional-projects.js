@@ -57,7 +57,7 @@ export const additionalProjects = [
         ],
         "image": "media/projects/raytracing.jpg",
         "demoVideo": "media/projects/raytracing.mp4",
-        "url": "",
+        "url": "https://github.com/SarAvi21805/proyecto2-raytracing",
         "liveUrl": "",
         "evidence": []
     },
@@ -88,7 +88,7 @@ export const additionalProjects = [
         ],
         "image": "media/projects/veridia.png",
         "demoVideo": "media/projects/shaders.mp4",
-        "url": "",
+        "url": "https://github.com/24750Montenegro/Raytracer/tree/feat/shaders",
         "liveUrl": "",
         "evidence": [
             "media/projects/flora.png",
@@ -122,7 +122,7 @@ export const additionalProjects = [
         ],
         "image": "media/projects/raycasting.jpg",
         "demoVideo": "media/projects/raycasting.mp4",
-        "url": "",
+        "url": "https://github.com/SarAvi21805/Raycasting",
         "liveUrl": "",
         "evidence": []
     },
@@ -153,7 +153,7 @@ export const additionalProjects = [
         ],
         "image": "media/projects/conway.png",
         "demoVideo": "media/projects/conway.mp4",
-        "url": "",
+        "url": "https://github.com/SarAvi21805/conway_game_of_life",
         "liveUrl": "",
         "evidence": []
     },
@@ -184,7 +184,7 @@ export const additionalProjects = [
         ],
         "image": "media/projects/obj.png",
         "demoVideo": "",
-        "url": "",
+        "url": "https://github.com/SarAvi21805/lab4",
         "liveUrl": "",
         "evidence": []
     },
@@ -214,8 +214,8 @@ export const additionalProjects = [
             "Comparer les algorithmes et relier les choix au résultat visuel."
         ],
         "image": "media/projects/triangles.png",
-        "demoVideo": "",
-        "url": "",
+        "demoVideo": "media/projects/triangles.mp4",
+        "url": "https://github.com/SarAvi21805/filling-triangles",
         "liveUrl": "",
         "evidence": [
             "media/projects/scanline.png"
@@ -246,9 +246,9 @@ export const additionalProjects = [
             "Turn a physical model into a visual exploration tool.",
             "Transformer un modèle physique en outil d’exploration visuelle."
         ],
-        "image": "",
-        "demoVideo": "",
-        "url": "",
+        "image": "media/projects/crt.png",
+        "demoVideo": "media/projects/crt.mp4",
+        "url": "https://github.com/SarAvi21805/ProyectoF3-CRT",
         "liveUrl": "",
         "evidence": []
     }
