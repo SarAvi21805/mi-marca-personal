@@ -13,7 +13,7 @@ export default function BrandManifesto() {
         <section className="brand-manifesto panel" id="manifiesto" aria-labelledby="manifesto-title">
             <p className="eyebrow">{tx('Mi manifiesto de marca', 'My brand manifesto', 'Mon manifeste de marque')}</p>
             <h2 id="manifesto-title">{tx('Crear con lógica. Conectar con empatía.', 'Create with logic. Connect with empathy.', 'Créer avec logique. Relier avec empathie.')}</h2>
-            <div className="manifesto-copy">
+            <div className="manifesto-layout"><div className="manifesto-copy">
                 <p>{tx(
                     'Soy Saraí. Creo en una tecnología que empieza por escuchar y en un diseño que ayuda a las personas a encontrar su siguiente paso. Me mueve convertir ideas en interfaces claras, útiles y con identidad.',
                     'I’m Saraí. I believe in technology that begins with listening and design that helps people find their next step. I am driven to turn ideas into clear, useful interfaces with an identity of their own.',
@@ -30,8 +30,8 @@ export default function BrandManifesto() {
                     'Je souhaite évoluer entre le développement frontend et le design UX, au sein d’équipes où apporter des idées et continuer à apprendre. Je m’engage à écouter, essayer et améliorer, même lorsque le premier pas me fait peur. Voilà l’impact que je recherche : une technologie plus proche, compréhensible et humaine.'
                 )}</p>
             </div>
-            <h3>{tx('Los valores que guían mi trabajo', 'The values behind my work', 'Les valeurs qui guident mon travail')}</h3>
-            <ul className="manifesto-values">{values.map(value => <li key={value}>{value}</li>)}</ul>
+            <aside className="manifesto-aside"><h3>{tx('Los valores que guían mi trabajo', 'The values behind my work', 'Les valeurs qui guident mon travail')}</h3>
+            <ul className="manifesto-values">{values.map(value => <li key={value}>{value}</li>)}</ul></aside></div>
             <Link className="text-link" to="/portafolio">{tx('Conoce cómo lo llevo a mis proyectos', 'See how I bring this to my projects', 'Découvrez comment cela nourrit mes projets')} →</Link>
         </section>
     );
