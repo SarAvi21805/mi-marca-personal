@@ -101,7 +101,41 @@ function Shell() {
     useEffect(()=>{window.scrollTo(0,0);},[pathname]);
     useEffect(()=>{document.title=`SarAvi · ${language==='es'?'Diseño y desarrollo':language==='en'?'Design and development':'Design et développement'}`;},[language]);
     const navigation=[['/',tx('Home','Home','Accueil')],['/sobre-mi',tx('Sobre Mí','About Me','À propos')],['/blog','Blog'],['/portafolio',tx('Portafolio','Portfolio','Portfolio')],['/contacto',tx('Contacto','Contact','Contact')]];
-    return <><Analytics/><a className="skip" href="#main">{tx('Saltar al contenido','Skip to content','Aller au contenu')}</a><header className="site-header"><Brand/><LanguageSelector/><button className="menu-toggle flower-menu" aria-label={menu?tx('Cerrar menú','Close menu','Fermer le menu'):tx('Abrir menú','Open menu','Ouvrir le menu')} aria-expanded={menu} aria-controls="navigation" onClick={()=>setMenu(!menu)}><FlowerIcon/><span>{menu?tx('Cerrar','Close','Fermer'):tx('Menú','Menu','Menu')}</span></button><nav id="navigation" className={menu?'is-open':''} aria-label={tx('Navegación principal','Main navigation','Navigation principale')} onKeyDown={e=>{if(e.key==='Escape'){setMenu(false);document.querySelector('.flower-menu')?.focus();}}}>{navigation.map(([url,label])=><NavLink key={url} to={url} end={url==='/'} onClick={()=>setMenu(false)}>{label}</NavLink>)}</nav></header><CreativeExperience/><main id="main" tabIndex="-1"><Routes><Route path="/" element={<Home/>}/><Route path="/sobre-mi" element={<About/>}/><Route path="/portafolio" element={<Portfolio/>}/><Route path="/blog" element={<Blog/>}/><Route path="/blog/:slug" element={<Article/>}/><Route path="/contacto" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes></main><footer className="site-footer"><Brand/><p className="personal-signature"><FullName/></p><p>{tx('SarAvi: una mezcla de mi nombre y mi apellido.','SarAvi: a blend of my first and last names.','SarAvi : une combinaison de mon prénom et de mon nom.')}</p><p>{tx('Computación y diseño UX en formación.','Computing and UX design, in training.','Informatique et design UX, en formation.')}</p><Socials/><small>© {new Date().getFullYear()} SarAvi · {tx('Ilustración creada con IA.','AI-generated illustration.','Illustration créée avec l’IA.')}</small></footer></>;
+    return <>
+        <Analytics/>
+        <a className="skip" href="#main">{tx('Saltar al contenido','Skip to content','Aller au contenu')}</a>
+        <header className="site-header">
+            <Brand/>
+            <LanguageSelector/>
+            <button className="menu-toggle flower-menu" aria-label={menu?tx('Cerrar menú','Close menu','Fermer le menu'):tx('Abrir menú','Open menu','Ouvrir le menu')} aria-expanded={menu} aria-controls="navigation" onClick={()=>setMenu(!menu)}>
+                <FlowerIcon/><span>{menu?tx('Cerrar','Close','Fermer'):tx('Menú','Menu','Menu')}</span>
+            </button>
+            <nav id="navigation" className={menu?'is-open':''} aria-label={tx('Navegación principal','Main navigation','Navigation principale')} onKeyDown={e=>{if(e.key==='Escape'){setMenu(false);document.querySelector('.flower-menu')?.focus();}}}>
+                {navigation.map(([url,label])=><NavLink key={url} to={url} end={url==='/'} onClick={()=>setMenu(false)}>{label}</NavLink>)}
+                <a href={`${import.meta.env.BASE_URL}presentacion.html`} target="_blank" rel="noreferrer" onClick={()=>setMenu(false)}>{tx('Presentación','Presentation','Présentation')} ↗</a>
+            </nav>
+        </header>
+        <CreativeExperience/>
+        <main id="main" tabIndex="-1">
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/sobre-mi" element={<About/>}/>
+                <Route path="/portafolio" element={<Portfolio/>}/>
+                <Route path="/blog" element={<Blog/>}/>
+                <Route path="/blog/:slug" element={<Article/>}/>
+                <Route path="/contacto" element={<Contact/>}/>
+                <Route path="*" element={<NotFound/>}/>
+            </Routes>
+        </main>
+        <footer className="site-footer">
+            <Brand/>
+            <p className="personal-signature"><FullName/></p>
+            <p>{tx('SarAvi: una mezcla de mi nombre y mi apellido.','SarAvi: a blend of my first and last names.','SarAvi : une combinaison de mon prénom et de mon nom.')}</p>
+            <p>{tx('Computación y diseño UX en formación.','Computing and UX design, in training.','Informatique et design UX, en formation.')}</p>
+            <Socials/>
+            <small>© {new Date().getFullYear()} SarAvi · {tx('Ilustración creada con IA.','AI-generated illustration.','Illustration créée avec l’IA.')}</small>
+        </footer>
+    </>;
 }
 export default function App() {
     return <LanguageProvider><HashRouter><Shell/></HashRouter></LanguageProvider>;
