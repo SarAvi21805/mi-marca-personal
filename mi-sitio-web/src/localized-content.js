@@ -25,7 +25,7 @@ export const portfolioData = [
   skills:'JavaScript, Vue, CSS, Shell, Python, PLpgSQL',
   value:['Conectar diseño, implementación, pruebas y documentación dentro de un trabajo colaborativo.','Connect design, implementation, testing and documentation in a collaborative project.','Relier conception, développement, tests et documentation dans un projet collaboratif.'],
   note:['Tecnologías del repositorio; la distribución de lenguajes no representa mi porcentaje de contribución.','Repository technologies; the language distribution does not represent my share of contributions.','Technologies du dépôt ; leur répartition ne représente pas ma part de contribution.'],
-  siteUrl:'https://www.kontrol.it.com/', url:'https://github.com/PabloVS044/Kontrol',image:'media/kontrol-site.png',demoVideo:'',liveUrl:''
+  siteUrl:'https://www.kontrol.it.com/', url:'https://github.com/PabloVS044/Kontrol',image:'media/kontrol-site.png',demoVideo:'media/projects/kontrol.mp4',liveUrl:''
  },
  {
   id:'snake',title:'Snake game',category:['Juego web · Proyecto personal','Web game · Personal project','Jeu web · Projet personnel'],
